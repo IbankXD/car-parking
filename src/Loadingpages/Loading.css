@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+body {
+    background-color: #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+}
+
+
+.loading-wallpaper {
+    border-radius: 60px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #FD6E2B;
+    width: 393px;
+    height: 893px;
+    background-image: url("../public/LOADING PAGES.png");
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+}
+
+.loading-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 48rem;
+    
+}
+
+/* วงกลมที่หมุน */
+.loading-spinner {
+    border: 5px solid #f3f3f3; /* สีพื้นหลัง */
+    border-top: 5px solid #473366; /* สีของส่วนที่หมุน */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+/* แอนิเมชันหมุน */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

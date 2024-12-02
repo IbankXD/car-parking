@@ -1,0 +1,236 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+body {
+    background-color: #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+}
+
+
+.wallpaper3 {
+    border-radius: 50px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #FD6E2B;
+    width: 393px;
+    height: 893px;
+    background-image: url("../public/wallpaper2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.recomm{
+    border: 3px solid #473366;
+    border-radius: 0.5rem;
+    background-color: #f2f2e6;
+    margin-top: 6.2rem;
+    width: 355px;
+    height: 65px;
+}
+
+.gangjank{
+    margin-top: 2.4rem;
+}
+
+.arkarn{
+    margin-top: 2rem;
+}
+
+
+.land1{
+    margin-top: 1.2rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    width: 340px;
+    height: 100px;
+    border-radius: 1rem;
+    background-color: #f2f2e6;
+    margin-left: 0.4rem;
+
+}
+
+.land2{
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    width: 340px;
+    height: 100px;
+    border-radius: 1rem;
+    background-color: #f2f2e6;
+    margin-top: 1.5rem;
+    margin-left: 0.4rem;
+
+}
+
+
+.land3{
+    margin-top: 1.2rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    width: 340px;
+    height: 100px;
+    border-radius: 1rem;
+    background-color: #f2f2e6;
+    margin-left: 0.4rem;
+    
+}
+
+.land4{
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    width: 340px;
+    height: 100px;
+    border-radius: 1rem;
+    background-color: #f2f2e6;
+    margin-top: 1.5rem;
+    margin-left: 0.4rem;
+
+}
+
+.landinfo{
+   margin-left: 12.2rem;
+   margin-top: -6.2rem;
+}
+
+.landinfo1{
+    margin-left: 13.5rem;
+    margin-top: -0.8rem;
+ }
+
+ .landinfo2{
+    margin-left: 13.9rem;
+    margin-top: -0.8rem;
+ }
+
+ .land1btn{
+    border-radius: 2rem;
+    margin-left: 16rem;
+    background-color: #473366;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+ }
+
+ .navbar2 {
+    display: flex;
+    justify-content: space-between;
+    background-color: #473366;
+    width: 360px;
+    height: 95px;
+    border-radius: 50px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    gap: 2px; /* เพิ่มระยะห่างระหว่างปุ่ม */
+    margin-top: -1rem;
+    z-index: 1;
+    position: relative;
+  }
+  
+  .nav2-button {
+    background-color: #f2f2e6;
+    color: #552b7f;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 0 3px; /* Adjust the spacing between buttons */
+    margin-top: 1rem;
+  }
+  
+  .nav2-button i.icon {
+    font-size: 20px;
+    color: #552b7f;
+  }
+  
+  .nav2-button.active {
+    background-color: #ff723c;
+    width: 75px;
+    height: 75px;
+    box-shadow: 0px 0px 15px rgba(164, 73, 255, 0.5);
+    margin-top: 0.3rem;
+    
+  }
+  
+  .nav2-button:hover {
+    transform: scale(1.1);
+  }
+  
+  .nav2-button:active {
+    transform: scale(0.95);
+  }
+  
+  .icons{
+    width: 25px;
+    height: 25px;
+  }
+
+  .scan{
+    width: 50px;
+    height: 50px;
+  }
+
+  .userbanks1{
+    width: 65px;
+    height: 65px;
+    border-radius: 100px;
+    margin-top: -103.8rem;
+    border: 2px solid #FD6E2B;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+
+  }
+
+  .userinfo1{
+    margin-top: -53.7rem;
+    margin-left:4.8rem ;
+    color: rgb(229, 229, 229);
+  }
+
+  .userinfo2{
+    margin-top: -0.7rem;
+    margin-left:4.8rem ;
+    color: rgb(229, 229, 229);
+  }
+
+  .thunder{
+    margin-left:1rem;
+    margin-top: 0.4rem;
+  }
+
+  .celcius{
+    margin-left:2.8rem;
+    margin-top: -1rem;
+  }
+
+  .thunderinfo{
+    margin-left:1rem;
+    margin-top: -0.5rem;
+  }
+
+  .danger{
+    margin-left:9rem;
+    margin-top: -4rem;
+  }
+
+  .dangerrec{
+    margin-left:9.5rem;
+    margin-top: -0.2rem;
+  }
+
+  .dangerrec1{
+    margin-left:9.5rem;
+    margin-top: -0.9rem;
+  }
+
+  .notify-find{
+    margin-left:18.4rem;
+    margin-top: -2rem;
+  }
+
+  .setting-find{
+    margin-left:20rem;
+    margin-top: -2.7rem;
+  }

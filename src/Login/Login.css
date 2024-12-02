@@ -1,0 +1,132 @@
+/* Main container styling */
+.login-container {
+  height: 852px;
+  width: 393px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  background-image: url('wallpaper.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50px;
+}
+
+/* Wallpaper styling */
+.wallpaper-login {
+  background-image: url('src/assets/images/wallpaper.png');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10%;
+}
+
+
+
+/* Login box styling */
+.login-box {
+  background-color: #f2f2e6;
+  border-radius: 25px;
+  padding: 20px;
+  width: 89%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  margin-top: 1rem;
+}
+
+.login-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Input fields styling */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+}
+
+/* Link styling */
+.link-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  margin-top: 2rem;
+}
+
+.link {
+  font-size: 14px;
+  color: #555;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Login button styling */
+.login-button {
+  width: 180px;
+  padding: 10px;
+  background-color: #473366;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 1rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.login-button:hover {
+  background-color: #4a3299;
+}
+
+/* LINE button styling */
+.login-with-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.line-button {
+  background-color: #00c300;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.line-button-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.line-button:hover {
+  background-color: #00b000;
+}

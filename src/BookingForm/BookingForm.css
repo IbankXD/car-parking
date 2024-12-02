@@ -1,0 +1,91 @@
+.booking-container {
+  height: 852px;
+  width: 393px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  background-image: url('wallpaper.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50px;
+  }
+  .wallpaper8 {
+    background-image: url('src/assets/images/wallpaper.png');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10%;
+  }
+  
+  .logo-img {
+    height: 150px;
+    width: 150px;
+    margin-top: -7px;
+    margin-left: 10px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .appointment-form {
+    background: #f2f2e6;
+    border-radius: 20px;
+    padding: 20px;
+    width: 70%;
+    height: 65%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-bottom: 1.6rem;
+  }
+  
+  .appointment-form h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .form-input {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+    
+  }
+  
+  .submit-button,
+  .history-button {
+    background-color: #473366;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 14px;
+    margin: 5px 0;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .submit-button:hover,
+  .history-button:hover {
+    background-color: #e26227;
+
+  }
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 25px;
+    width: 80%;
+    
+  }
+  
+ 
+  

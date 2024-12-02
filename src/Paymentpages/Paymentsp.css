@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", serif;
+}
+
+body {
+    background-color: #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+h1, h2, h3, p {
+    font-family: "Inter", serif;
+}
+
+
+.wallpaper10 {
+    border-radius: 50px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #FD6E2B;
+    width: 393px;
+    height: 840px;
+    background-image: url("../public/PAYMENT PAGE.png");
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+}
+
+.yodchumla{
+    width: 295px;
+    height: 58px;
+    border-radius: 50px;
+    margin-top: 41.5rem;
+    margin-left: 2rem;
+    margin-right: 20px;
+    background-color: #473366;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    align-items: center;
+
+}
+
+.yodchumla1{
+    margin-top: 1.9rem;
+    margin-left: 1.5rem;
+    line-height: 0.2;
+}
+
+.yodchumla2{
+    margin-top: -2rem;
+    margin-left: 8.5rem;
+    line-height: 0.2;
+}
+
+
+.reciep-num{
+    border: 3px solid #473366;
+    background-color: #f2f2e6;
+    width: 340px;
+    height: 80px;
+    margin-top: -37.9rem;
+    margin-left: 0.4rem;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.title-payment{
+    margin-left: 1.2rem;
+    margin-top: 3.6rem;
+    color: white;
+}
+.payment-info{
+    font-size: 12px;
+    margin-left: 4.5rem;
+    margin-top: 1.5rem;
+    color: #454545;
+
+}
+
+.btn-pay{
+    border-radius: 50px;
+    background-color: #FD6E2B;
+    width: 115px;
+    height: 50px;
+    box-shadow: 0px 4px 6px rgba(135, 44, 255, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+}
+.btn-pay:hover{
+    background-color: #9751ff;
+    box-shadow: 0px 4px 6px rgba(135, 44, 255, 0.4);
+    transform: scale(1.1);
+}
+
+.btn-pay-container{
+    margin-top: 2.3rem;
+    margin-left: 13.7rem;
+
+}
+
+.backbtn-back2{
+    margin-top: -3.5rem;
+    margin-left: 21px;
+}
+
+.backbtn2{
+    box-shadow: 0px 4px 6px rgba(135, 44, 255, 0.4);
+    background-color: #fd6e2b;
+  }
+  
+  .backbtn2:hover{
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    background-color: #9751ff;
+    transform: scale(1.1);
+  }
