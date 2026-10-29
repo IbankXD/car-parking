@@ -21,7 +21,7 @@ body {
     background-color: #FD6E2B;
     width: 393px;
     height: 893px;
-    background-image: url("../public/LOADING PAGES.png");
+    background-image: url('/LOADING PAGES.png');
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;

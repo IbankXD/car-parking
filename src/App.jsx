@@ -1,90 +1,88 @@
-import './App.css'
-import Signup from './Signuppages/signup'
-import Dashboard from './Dashboardpages/Dashboard'
-import VisualP from './VisualCpages/VisualP'
-import Findpark from './Findparkpages/Findpark';
-import Findparkm from './Findparkpagesm/Findparkm';
-import Changeq from './ChangeQrpages/Changeq';
-import Visualv from './VisualVpages/Visualv';
-import BookingForm from './BookingForm/BookingForm';
-import UserSettings from './UserSettings/UserSettings';
-import UserSettingsm from './UserSettingsm/UserSettingsm';
-import Paymentsp from './Paymentpages/Paymentsp';
-import PaymentOptions from './Payment/PaymentOptions';
-import PaymentSuccess from './PaymentSuccess/PaymentSuccess';
-import Qrscan from './QRscanout/Qrscan';
-import ManageVehicles from './ManageVehicles/ManageVehicles';
-import Loading from './Loadingpages/Loading';
-import Login from './Login/Login';
-import Recent from './Recentpages/Recent';
-import Recentv from './Recentpagesv/Recentv';
-import Parking from './Parking/Parking';
-import VisualP2 from './VisualCpages2/VisualP2';
-import DashboardV from './Dashboardpagesvisit/DashboardV';
-import Historypayment from './Historypayment/Historypayment';
-import Historypaymentv from './Historypaymentv/Historypaymentv';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import '@fontsource/inter'; // Import ฟอนต์ Inter
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import '@fontsource/inter';
+import './index.css';
 
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { ParkingProvider } from './context/ParkingContext';
 
+import LoginPage from './Login/Login';
+import SignupPage from './Signuppages/Signup';
+import DashboardPage from './pages/DashboardPage';
+import FindParkPage from './pages/FindParkPage';
+import ParkingTimerPage from './pages/ParkingTimerPage';
+import PaymentPage from './pages/PaymentPage';
+import BookingPage from './pages/BookingPage';
+import VehiclesPage from './pages/VehiclesPage';
+import HistoryPage from './pages/HistoryPage';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  // จำลองการโหลดด้วย setTimeout
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false); // เปลี่ยนสถานะการโหลด
-    }, 3000); // 3 วินาที
-    return () => clearTimeout(timer); // เคลียร์เมื่อ component ถูก unmount
-  }, []);
-
-  if (isLoading) {
-    // แสดงหน้าโหลดขณะกำลังโหลด
-    return <Loading />;
-  }
-
-
   return (
-    <>
-
+    <ParkingProvider>
       <Router>
-      <Routes>
+        <Routes>
+          {/* Main New App Routes */}
+          <Route path="/" element={<DashboardPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/findpark" element={<FindParkPage />} />
+          <Route path="/parking-timer" element={<ParkingTimerPage />} />
+          <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/booking" element={<BookingPage />} />
+          <Route path="/vehicles" element={<VehiclesPage />} />
+          <Route path="/history" element={<HistoryPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
 
-        <Route path="/" element={<Login />} /> {/* หน้าแรก */}
-        <Route path="/Login" element={<Login />} /> 
-        <Route path="/DashboardV" element={<DashboardV />} /> 
-        <Route path="/VisualP2" element={<VisualP2 />} /> 
-        <Route path="/Parking" element={<Parking />} /> 
-        <Route path="/Recent" element={<Recent />} /> 
-        <Route path="/Recentv" element={<Recentv />} /> 
-        <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/Findpark" element={<Findpark />} />
-        <Route path="/Findparkm" element={<Findparkm />} />
-        <Route path="/Signup" element={<Signup />} />
-        <Route path="/VisualP" element={<VisualP />} />
-        <Route path="/Changeq" element={<Changeq />} />
-        <Route path="/Visualv" element={<Visualv />} />
-        <Route path="/BookingForm" element={<BookingForm />} />
-        <Route path="/UserSettings" element={<UserSettings />} />
-        <Route path="/UserSettingsm" element={<UserSettingsm />} />
-        <Route path="/Paymentsp" element={<Paymentsp />} />
-        <Route path="/PaymentOptions" element={<PaymentOptions />} />
-        <Route path="/PaymentSuccess" element={<PaymentSuccess />} />
-        <Route path="/Qrscan" element={<Qrscan />} />
-        <Route path="/ManageVehicles" element={<ManageVehicles />} />
-        <Route path="/Historypayment" element={<Historypayment />} />
-        <Route path="/Historypaymentv" element={<Historypaymentv />} />
+          {/* Backward compatibility aliases */}
+          <Route path="/Dashboard" element={<DashboardPage />} />
+          <Route path="/dashboardv" element={<DashboardPage />} />
+          <Route path="/DashboardV" element={<DashboardPage />} />
+          <Route path="/Findpark" element={<FindParkPage />} />
+          <Route path="/findparkm" element={<FindParkPage />} />
+          <Route path="/Findparkm" element={<FindParkPage />} />
+          <Route path="/parking" element={<ParkingTimerPage />} />
+          <Route path="/Parking" element={<ParkingTimerPage />} />
+          <Route path="/paymentsp" element={<PaymentPage />} />
+          <Route path="/Paymentsp" element={<PaymentPage />} />
+          <Route path="/paymentoptions" element={<PaymentPage />} />
+          <Route path="/PaymentOptions" element={<PaymentPage />} />
+          <Route path="/paymentsuccess" element={<PaymentPage />} />
+          <Route path="/PaymentSuccess" element={<PaymentPage />} />
+          <Route path="/bookingform" element={<BookingPage />} />
+          <Route path="/BookingForm" element={<BookingPage />} />
+          <Route path="/managevehicles" element={<VehiclesPage />} />
+          <Route path="/ManageVehicles" element={<VehiclesPage />} />
+          <Route path="/recent" element={<HistoryPage />} />
+          <Route path="/Recent" element={<HistoryPage />} />
+          <Route path="/recentv" element={<HistoryPage />} />
+          <Route path="/Recentv" element={<HistoryPage />} />
+          <Route path="/historypayment" element={<HistoryPage />} />
+          <Route path="/Historypayment" element={<HistoryPage />} />
+          <Route path="/historypaymentv" element={<HistoryPage />} />
+          <Route path="/Historypaymentv" element={<HistoryPage />} />
+          <Route path="/usersettings" element={<ProfilePage />} />
+          <Route path="/UserSettings" element={<ProfilePage />} />
+          <Route path="/usersettingsm" element={<ProfilePage />} />
+          <Route path="/UserSettingsm" element={<ProfilePage />} />
+          <Route path="/visualp" element={<ProfilePage />} />
+          <Route path="/VisualP" element={<ProfilePage />} />
+          <Route path="/visualp2" element={<ProfilePage />} />
+          <Route path="/VisualP2" element={<ProfilePage />} />
+          <Route path="/visualv" element={<ProfilePage />} />
+          <Route path="/Visualv" element={<ProfilePage />} />
+          <Route path="/changeq" element={<VehiclesPage />} />
+          <Route path="/Changeq" element={<VehiclesPage />} />
+          <Route path="/qrscan" element={<ParkingTimerPage />} />
+          <Route path="/Qrscan" element={<ParkingTimerPage />} />
 
-
-      </Routes>
-    </Router>
-    </>
-  )
+          {/* Catch-all */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Router>
+    </ParkingProvider>
+  );
 }
 
-export default App
+export default App;

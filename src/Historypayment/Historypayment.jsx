@@ -1,11 +1,11 @@
 import './Historypayment.css';
 import { useNavigate } from 'react-router-dom';
-function Paymentsp() {
+
+function Historypayment() {
     const navigate = useNavigate();
     return (
         <div className="wallpaper10">
-            <div className='yodchumla'>
-            </div>
+            <div className='yodchumla'></div>
             <div className='reciep-num'>
                 <h5 style={{ fontSize: "19px", marginLeft: "1.4rem", color: "#3f3f3f" }}>หมายเลขใบเสร็จ : 00234</h5>
             </div>
@@ -35,7 +35,6 @@ function Paymentsp() {
                 <p>
                     <strong>ค่าบริการ:</strong> 30.00 บาท
                 </p>
-
             </div>
             <div className='yodchumla1'>
                 <h4 style={{ fontSize: "15px", marginLeft: "1.4rem", color: "#fff" }}> ยอดชําระ </h4>
@@ -45,17 +44,15 @@ function Paymentsp() {
                 <h4 style={{ fontSize: "15px", marginLeft: "1.4rem", color: "#fff" }}> 30.00 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; บาท </h4>
             </div>
 
-
-
             <div className="backbtn-back1">
                 <button className='backbtn2 bi bi-arrow-left' style={{ width: "65px", height: "65px", borderRadius: "50%" }} onClick={() => navigate(-1)}></button>
             </div>
 
-            <div style={{backgroundColor: "#fd6e2b"}} className='circle-back'>
-                <img style={{ width: "30px", height: "30px", borderRadius: "50%" }} src="Download.png" alt="" />
+            <div style={{ backgroundColor: "#fd6e2b", cursor: "pointer" }} className='circle-back' onClick={() => alert('กำลังดาวน์โหลดใบเสร็จ...')}>
+                <img style={{ width: "30px", height: "30px", borderRadius: "50%" }} src="/Download.png" alt="Download" />
             </div>
         </div>
     );
 }
 
-export default Paymentsp;
+export default Historypayment;

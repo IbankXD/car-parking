@@ -1,14 +1,36 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ManageVehicles.css";
 
-const ManageVehicles = () => {
-    const [plates, setPlates] = useState([]); // รายการทะเบียนรถ
-    const [toggles, setToggles] = useState([]); // สถานะเปิด/ปิด
-    const [input, setInput] = useState(""); // ค่าที่กรอกใน input
-    const [selectedPlates, setSelectedPlates] = useState([]); // เก็บค่าของทะเบียนที่เลือกสำหรับลบ
+const DEFAULT_PLATES = ['กก 1234', 'ขข 5678'];
 
+const ManageVehicles = () => {
+    const [plates, setPlates] = useState(() => {
+        try {
+            const saved = localStorage.getItem('user_plates');
+            return saved ? JSON.parse(saved) : DEFAULT_PLATES;
+        } catch {
+            return DEFAULT_PLATES;
+        }
+    });
+
+    const [toggles, setToggles] = useState(() => {
+        try {
+            const saved = localStorage.getItem('user_plate_toggles');
+            return saved ? JSON.parse(saved) : [true, false];
+        } catch {
+            return [true, false];
+        }
+    });
+
+    const [input, setInput] = useState("");
     const navigate = useNavigate();
+
+    useEffect(() => {
+        localStorage.setItem('user_plates', JSON.stringify(plates));
+        localStorage.setItem('user_plate_toggles', JSON.stringify(toggles));
+    }, [plates, toggles]);
+
     const handleToggle = (index) => {
         const activeToggles = toggles.filter((toggle) => toggle).length;
 
@@ -23,18 +45,17 @@ const ManageVehicles = () => {
     };
 
     const handleAddPlate = () => {
-        const regex = /^[ก-ฮ0-9]+$/;
-        if (!regex.test(input)) {
-            alert("กรุณาเพิ่มทะเบียนรถที่เป็นภาษาไทยหรือตัวเลขเท่านั้น");
+        const trimmed = input.trim();
+        if (!trimmed) {
+            alert("กรุณากรอกทะเบียนรถ");
             return;
         }
 
-        setPlates([...plates, input]);
+        setPlates([...plates, trimmed]);
         setToggles([...toggles, false]);
         setInput("");
     };
 
-    // ฟังก์ชันลบทะเบียนรถ
     const handleDeletePlate = (index) => {
         const confirmed = window.confirm(`คุณต้องการลบทะเบียนรถ "${plates[index]}" ใช่หรือไม่?`);
         if (confirmed) {
@@ -45,12 +66,12 @@ const ManageVehicles = () => {
             setToggles(newToggles);
         }
     };
+
     return (
         <div className="manage-vehicles">
-
             <div className="wallpaper16">
-                <div>
-                    <img src="src/assets/images/logo.png" alt="" />
+                <div style={{ textAlign: "center", paddingTop: "20px" }}>
+                    <img style={{ width: "120px", height: "120px" }} src="/logo.png" alt="Logo" />
                 </div>
                 <header className="header2">
                     <div className="input-container2">
@@ -65,7 +86,6 @@ const ManageVehicles = () => {
                     <div className="add-button-containers">
                         <button className="add-button-vehicle" onClick={handleAddPlate}>+</button>
                     </div>
-                    
                 </header>
                 <div className="plate-list">
                     <br /><br /><br />
@@ -81,7 +101,7 @@ const ManageVehicles = () => {
                             <label className="switch">
                                 <input
                                     type="checkbox"
-                                    checked={toggles[index]}
+                                    checked={Boolean(toggles[index])}
                                     onChange={() => handleToggle(index)}
                                 />
                                 <span className="slider"></span>
@@ -91,23 +111,23 @@ const ManageVehicles = () => {
                     <br />
                 </div>
                 <div className="manage-footer">
-                <div className="navbar">
-                    <button className="nav-button" onClick={() => navigate('/dashboard')}>
-                        <img className='icons' src="homes.png" alt="" />
-                    </button>
-                    <button className="nav-button" onClick={() => navigate('/findpark')}>
-                        <img className='icons' src="search.png" alt="" />
-                    </button>
-                    <button className="nav-button active">
-                        <img className='scan' src="scan.png" alt="" />
-                    </button>
-                    <button className="nav-button">
-                        <img className='icons' src="recent.png" alt="" />
-                    </button>
-                    <button className="nav-button" onClick={() => navigate('/visualp')}>
-                        <img className='icons' src="userpro.png" alt="" />
-                    </button>
-                </div>
+                    <div className="navbar">
+                        <button className="nav-button" onClick={() => navigate('/dashboard')}>
+                            <img className='icons' src="/homes.png" alt="Home" />
+                        </button>
+                        <button className="nav-button" onClick={() => navigate('/findpark')}>
+                            <img className='icons' src="/search.png" alt="Search" />
+                        </button>
+                        <button className="nav-button active" onClick={() => navigate('/parking')}>
+                            <img className='scan' src="/scan.png" alt="Scan" />
+                        </button>
+                        <button className="nav-button" onClick={() => navigate('/recent')}>
+                            <img className='icons' src="/recent.png" alt="Recent" />
+                        </button>
+                        <button className="nav-button" onClick={() => navigate('/visualp')}>
+                            <img className='icons' src="/userpro.png" alt="Profile" />
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

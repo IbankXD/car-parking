@@ -22,7 +22,7 @@ body {
     background-color: #FD6E2B;
     width: 393px;
     height: 893px;
-    background-image: url("../public/wallpaper2.png");
+    background-image: url('/wallpaper2.png');
     background-size: cover;
     background-repeat: no-repeat;
 }

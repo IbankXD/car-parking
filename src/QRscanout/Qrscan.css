@@ -20,7 +20,7 @@
     background-color: #FD6E2B;
     width: 393px;
     height: 893px;
-    background-image: url("../public/wallpaper.png");
+    background-image: url('/wallpaper.png');
     background-size: cover;
     background-repeat: no-repeat;
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './Parking.css';
 
@@ -29,7 +29,7 @@ function Parking() {
     }, []);
 
     const createCircleStyle = (value, maxValue) => ({
-        strokeDasharray: `${(value / maxValue) * 283} 283`, // เส้นรอบวงของวงกลม
+        strokeDasharray: `${(value / maxValue) * 283} 283`,
         strokeDashoffset: 0,
     });
 
@@ -38,14 +38,14 @@ function Parking() {
             <div className="wallpaper20">
                 <div className="profile-card2">
                     <img
-                        src="./User.jpg"
+                        src="/User.jpg"
                         alt="Profile"
                         className="profile-image2"
                     />
                     <div className="profile-details">
                         <div className='profile-info'>
                             <p style={{ marginTop: "19px" }} className="profile-name">ศิวัฒน์ แก้วหนองสังข์</p>
-                            <p className="profile-type">TYPE:---</p>
+                            <p className="profile-type">TYPE: MEMBER</p>
                             <p style={{ marginLeft: "2px" }} className="profile-info">เบอร์โทร: 096-xxx-2172</p>
                         </div>
                     </div>
@@ -56,7 +56,7 @@ function Parking() {
                         <p style={{ marginLeft: "1rem" }}>สถานที่ : ลานจอดกลางแจ้ง 1</p>
                         <p style={{ marginLeft: "1rem" }}>วันที่ : 1 / 11 / 2567</p>
                         <p style={{ marginLeft: "1rem" }}>ทะเบียนรถ : กก 1234</p>
-                        <img className='img-recent-car' src="Car.png" alt="" />
+                        <img className='img-recent-car' src="/Car.png" alt="Car" />
 
                         <div className="timer-container">
                             <div style={{ display: "flex", gap: "20px", justifyContent: "center", alignItems: "center" }}>
@@ -100,7 +100,7 @@ function Parking() {
                         <p style={{ marginLeft: "1rem" }}>สถานที่ : ลานจอดกลางแจ้ง 1</p>
                         <p style={{ marginLeft: "1rem" }}>วันที่ : 1 / 11 / 2567</p>
                         <p style={{ marginLeft: "1rem" }}>ทะเบียนรถ : กก 1234</p>
-                        <img className='img-recent-car' src="Car.png" alt="" />
+                        <img className='img-recent-car' src="/Car.png" alt="Car" />
 
                         <div className="timer-container">
                             <div style={{ display: "flex", gap: "20px", justifyContent: "center", alignItems: "center" }}>
@@ -139,27 +139,26 @@ function Parking() {
                             </div>
                         </div>
                     </div>
-
                 </div>
-                    <div className="parking-nav-container">
-                        <div className="navbar">
-                            <button className="nav-button" onClick={() => navigate('/dashboard')}>
-                                <img className='icons' src="homes.png" alt="" />
-                            </button>
-                            <button className="nav-button" onClick={() => navigate('/findpark')}>
-                                <img className='icons' src="search.png" alt="" />
-                            </button>
-                            <button className="nav-button active">
-                                <img className='scan' src="scan.png" alt="" />
-                            </button>
-                            <button className="nav-button" onClick={() => navigate('/recent')}>
-                                <img className='icons' src="recent.png" alt="" />
-                            </button>
-                            <button className="nav-button" onClick={() => navigate('/visualp')}>
-                                <img className='icons' src="userpro.png" alt="" />
-                            </button>
-                        </div>
+                <div className="parking-nav-container">
+                    <div className="navbar">
+                        <button className="nav-button" onClick={() => navigate('/dashboard')}>
+                            <img className='icons' src="/homes.png" alt="Home" />
+                        </button>
+                        <button className="nav-button" onClick={() => navigate('/findpark')}>
+                            <img className='icons' src="/search.png" alt="Search" />
+                        </button>
+                        <button className="nav-button active" onClick={() => navigate('/parking')}>
+                            <img className='scan' src="/scan.png" alt="Scan" />
+                        </button>
+                        <button className="nav-button" onClick={() => navigate('/recent')}>
+                            <img className='icons' src="/recent.png" alt="Recent" />
+                        </button>
+                        <button className="nav-button" onClick={() => navigate('/visualp')}>
+                            <img className='icons' src="/userpro.png" alt="Profile" />
+                        </button>
                     </div>
+                </div>
             </div>
         </div>
     );

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './BookingForm.css';
 
 const BookingForm = () => {
-  const navigate = useNavigate();  // สร้าง instance ของ useNavigate
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -15,27 +15,32 @@ const BookingForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [name]: value,
-    });
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // ตรวจสอบว่าทุกฟิลด์ถูกกรอกครบถ้วน
     if (!formData.name || !formData.phone || !formData.carNumber || !formData.notes || !formData.time || !formData.date) {
       alert('กรุณากรอกข้อมูลให้ครบถ้วน');
-      return; // ถ้ายังไม่ครบให้ไม่ส่งข้อมูล
+      return;
     }
 
-    console.log('Form Data:', formData);
+    const existing = JSON.parse(localStorage.getItem('parking_appointments') || '[]');
+    const newAppointment = {
+      ...formData,
+      id: Date.now(),
+      createdAt: new Date().toLocaleDateString('th-TH'),
+      location: 'ลานจอดกลางแจ้ง 1'
+    };
+    localStorage.setItem('parking_appointments', JSON.stringify([newAppointment, ...existing]));
+
     alert('ข้อมูลถูกบันทึกแล้ว!');
 
-    // ส่งข้อมูลไปที่หน้า AppointmentHistory
     navigate('/history', { state: { appointmentData: formData } });
 
-    // Reset ฟอร์ม
     setFormData({
       name: '',
       phone: '',
@@ -46,17 +51,15 @@ const BookingForm = () => {
     });
   };
 
-  // ฟังก์ชันสำหรับปุ่ม "ประวัติการนัดหมาย"
   const goToHistory = () => {
     navigate('/history');
   };
 
   return (
     <div className="booking-container">
-    
       <div className="wallpaper8">
         <div className="form-header">
-          <img className="logo-img" src="logo.png" alt="" />
+          <img className="logo-img" src="/logo.png" alt="Logo" />
         </div>
         <form className="appointment-form" onSubmit={handleSubmit}>
           <h2>จองการนัดหมาย</h2>
@@ -114,28 +117,24 @@ const BookingForm = () => {
           <button type="button" className="history-button" onClick={goToHistory}>ประวัติการนัดหมาย</button>
         </form>
         <div className="navbar">
-                <button className="nav-button" onClick={() => navigate('/dashboard')}>
-                    <img className='icons' src="homes.png" alt="" />
-                </button>
-                <button className="nav-button" onClick={() => navigate('/findpark')}>
-                    <img className='icons' src="search.png" alt="" />
-                </button>
-                <button className="nav-button active">
-                    <img className='scan' src="scan.png" alt="" />
-                </button>
-                <button className="nav-button">
-                    <img className='icons' src="recent.png" alt="" />
-                </button>
-                <button className="nav-button" onClick={() => navigate('/visualp')}>
-                    <img className='icons' src="userpro.png" alt="" />
-
-                </button>
-            </div>
+          <button className="nav-button" onClick={() => navigate('/dashboard')}>
+            <img className='icons' src="/homes.png" alt="Home" />
+          </button>
+          <button className="nav-button" onClick={() => navigate('/findpark')}>
+            <img className='icons' src="/search.png" alt="Find" />
+          </button>
+          <button className="nav-button active" onClick={() => navigate('/parking')}>
+            <img className='scan' src="/scan.png" alt="Scan" />
+          </button>
+          <button className="nav-button" onClick={() => navigate('/recent')}>
+            <img className='icons' src="/recent.png" alt="Recent" />
+          </button>
+          <button className="nav-button" onClick={() => navigate('/visualp')}>
+            <img className='icons' src="/userpro.png" alt="Profile" />
+          </button>
+        </div>
       </div>
-
-
     </div>
-
   );
 };
 

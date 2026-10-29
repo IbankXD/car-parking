@@ -1,21 +1,15 @@
-import React from 'react';
 import './dashboard.css';
-
 import { useNavigate } from 'react-router-dom';
 
-
 function Dashboard() {
-
     const navigate = useNavigate();
-
 
     return (
         <div className='wallpaper2'>
             <div className='profile'>
                 <div className='celcius-dash'><h3 style={{ fontSize: "27px" }}>  29 </h3><p style={{ fontSize: "15px" }}>°C</p></div>
                 <div className='thunderinfo-dash'> <p style={{ fontSize: "8px" }}> พายุฝนฟ้าคะนอง </p></div>
-                <div className='thunder-dash'><img style={{ width: "25px", height: "25px" }} src="thunders.png" alt="" /></div>
-
+                <div className='thunder-dash'><img style={{ width: "25px", height: "25px" }} src="/thunders.png" alt="Thunder" /></div>
             </div>
             <div className='dashboard-content' >
                 {/* main menu */}
@@ -23,13 +17,9 @@ function Dashboard() {
                     <h4><b>MAIN MENU <span className='bi bi-list'></span></b></h4>
                 </div>
                 <div className='btn-container'>
-
-
                     <button className='btnm' onClick={() => navigate('/findpark')}>
                         <span className='bi bi-search'></span>
                     </button>
-
-
                     <button className='btnm' onClick={() => navigate('/paymentsp')}>
                         <span className='bi bi-file-earmark-text'></span>
                     </button>
@@ -61,40 +51,30 @@ function Dashboard() {
                         <span>การเข้าจอด</span>
                     </div>
                 </div>
-                {/* ------------------------------------------- */}
-
 
                 {/* ai function */}
                 <div className='aigen'>
-                    <h4><b>การคาดการณ์ <span
-                        className='bi bi-chat-left'></span></b></h4>
+                    <h4><b>การคาดการณ์ <span className='bi bi-chat-left'></span></b></h4>
                     <div className='aiback'>
                         <input type="date" className='date' placeholder='กรอกวันที่และเวลาที่ต้องการ' />
                     </div>
-                    <img className='cloud' src="clouds.png" alt="" />
+                    <img className='cloud' src="/clouds.png" alt="Cloud" />
                     <div className='aiback2'>
                         <input type="text" className='notiai' placeholder='loading......pleasewait' disabled />
                     </div>
-
                 </div>
-                {/* ------------------------------------------- */}
-
 
                 {/* การนัดหมาย */}
-                <div className='ticket'>
+                <div className='ticket' onClick={() => navigate('/bookingform')} style={{ cursor: 'pointer' }}>
                     <h4><b>การนัดหมาย <span className='bi bi-pin-angle-fill'></span></b></h4>
-                    <img className='tick' src="tickets.png" alt="" />
-                    <div className='tick-cal2'>
-                    </div>
+                    <img className='tick' src="/tickets.png" alt="Ticket" />
+                    <div className='tick-cal2'></div>
                     <div className='tick-cal'>
-                        <img className='qrcode-dashdash' style={{ width: "80px", height: "80px" }} src="QRCODESC.png" alt="" />
+                        <img className='qrcode-dashdash' style={{ width: "80px", height: "80px" }} src="/QRCODESC.png" alt="QR Code" />
                     </div>
                 </div>
-                {/* ------------------------------------------- */}
 
-
-
-                <img className='user-dash' src="Userbank.jpg" alt="" />
+                <img className='user-dash' src="/Userbank.jpg" alt="User" />
                 <div className='info-dash'>
                     <h4 style={{ fontSize: '15px' }}>WELCOME BACK</h4>
                     <div className='info-dash1'>
@@ -104,44 +84,44 @@ function Dashboard() {
                 </div>
 
                 <div className='setnoti-dash'>
-                    <div className='setting-dash'><button onClick={() => navigate('/usersettingsm')} style={{ backgroundColor: "transparent", border: "none", }} >
-                        <span><img style={{ width: "19px", height: "19px" }} src="Settings.png" alt="" /></span></button></div>
-                    <div className='notify-dash'><button style={{ backgroundColor: "transparent", border: "none", }} >
-                        <span><img style={{ width: "17px", height: "19px" }} src="notify.png" alt="" /></span></button></div>
+                    <div className='setting-dash'>
+                        <button onClick={() => navigate('/usersettingsm')} style={{ backgroundColor: "transparent", border: "none" }} >
+                            <span><img style={{ width: "19px", height: "19px" }} src="/Settings.png" alt="Settings" /></span>
+                        </button>
+                    </div>
+                    <div className='notify-dash'>
+                        <button style={{ backgroundColor: "transparent", border: "none" }} >
+                            <span><img style={{ width: "17px", height: "19px" }} src="/notify.png" alt="Notify" /></span>
+                        </button>
+                    </div>
                 </div>
 
                 <div className='footer-dash'>
-                <div className="navbar">
-                <button className="nav-button" onClick={() => navigate('/dashboard')}>
-                <img className='icons' src="homes.png" alt="" />
-                </button>
-                <button className="nav-button" onClick={() => navigate('/findpark')}>
-                <img className='icons' src="search.png" alt="" />
-                </button>
-                <button className="nav-button active">
-                <img className='scan' src="scan.png" alt="" />
-                </button>
-                <button className="nav-button" onClick={() => navigate('/recent')}>
-                <img className='icons' src="recent.png" alt="" />
-                </button>
-                <button className="nav-button" onClick={() => navigate('/visualp')}>
-                <img className='icons' src="userpro.png" alt="" />
-                </button>
+                    <div className="navbar">
+                        <button className="nav-button" onClick={() => navigate('/dashboard')}>
+                            <img className='icons' src="/homes.png" alt="Home" />
+                        </button>
+                        <button className="nav-button" onClick={() => navigate('/findpark')}>
+                            <img className='icons' src="/search.png" alt="Search" />
+                        </button>
+                        <button className="nav-button active" onClick={() => navigate('/parking')}>
+                            <img className='scan' src="/scan.png" alt="Parking" />
+                        </button>
+                        <button className="nav-button" onClick={() => navigate('/recent')}>
+                            <img className='icons' src="/recent.png" alt="Recent" />
+                        </button>
+                        <button className="nav-button" onClick={() => navigate('/visualp')}>
+                            <img className='icons' src="/userpro.png" alt="Profile" />
+                        </button>
+                    </div>
                 </div>
-                </div>
-
             </div>
-                {/* <div className='btn-tick-dash'>
-                    <button className='btn-tick'>
-                        <p style={{ fontSize: '9px' }} >เพิ่มเติม<span className='bi bi-plus'></span></p>
-                    </button>
-                </div> */}
-                <div className='tick-cal-info'>
+
+            <div className='tick-cal-info'>
                 <p style={{ fontSize: '15px' }}> <b> นัดหมายแล้ว </b></p>
                 <p>15 ธ.ค 2567 &nbsp;&nbsp; 12 : 00 น.</p>
-                </div>
+            </div>
         </div>
-
     );
 }
 
