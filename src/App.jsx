@@ -20,7 +20,7 @@ import ProfilePage from './pages/ProfilePage';
 function App() {
   return (
     <ParkingProvider>
-      <Router>
+      <Router basename={import.meta.env.BASE_URL}>
         <Routes>
           {/* Main New App Routes */}
           <Route path="/" element={<DashboardPage />} />

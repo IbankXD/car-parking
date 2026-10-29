@@ -28,6 +28,10 @@ export default function Header() {
             src={asset(user.avatar)}
             alt={user.name}
             className="user-avatar"
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = asset('/Userbank.jpg');
+            }}
             onClick={() => navigate('/profile')}
             style={{ cursor: 'pointer' }}
           />

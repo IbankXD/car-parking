@@ -1,9 +1,27 @@
 export const asset = (path) => {
-  if (!path) return '';
-  if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:')) {
+  if (!path || typeof path !== 'string') return '';
+  if (
+    path.startsWith('http://') ||
+    path.startsWith('https://') ||
+    path.startsWith('data:') ||
+    path.startsWith('blob:')
+  ) {
     return path;
   }
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+
+  // Strip leading slashes
+  let cleanPath = path.replace(/^\/+/, '');
+
+  // Strip any repo prefix ('car-parking/') repeatedly if present
+  while (cleanPath.startsWith('car-parking/')) {
+    cleanPath = cleanPath.slice('car-parking/'.length);
+  }
+
+  // Also remove any remaining leading slashes
+  cleanPath = cleanPath.replace(/^\/+/, '');
+
   const base = import.meta.env.BASE_URL || '/';
-  return base.endsWith('/') ? `${base}${cleanPath}` : `${base}/${cleanPath}`;
+  const prefix = base.endsWith('/') ? base : `${base}/`;
+
+  return `${prefix}${cleanPath}`;
 };

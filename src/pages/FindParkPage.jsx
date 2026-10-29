@@ -82,7 +82,15 @@ export default function FindParkPage() {
             return (
               <div key={lot.id} className="lot-card">
                 <div className="lot-image-wrapper">
-                  <img src={asset(lot.image)} alt={lot.name} className="lot-image" />
+                  <img
+                    src={asset(lot.image)}
+                    alt={lot.name}
+                    className="lot-image"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = asset(lot.type === 'indoor' ? '/arkarnjod1.png' : '/gangjank1.png');
+                    }}
+                  />
                   <span className={`lot-badge-type ${lot.type}`}>
                     {lot.type === 'indoor' ? 'ในอาคาร' : 'กลางแจ้ง'}
                   </span>
@@ -146,6 +154,10 @@ export default function FindParkPage() {
                   alt={navModal.name}
                   className="rounded mb-3 w-100"
                   style={{ maxHeight: '160px', objectFit: 'cover' }}
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = asset(navModal.type === 'indoor' ? '/arkarnjod1.png' : '/gangjank1.png');
+                  }}
                 />
                 <div className="d-flex justify-content-around bg-light p-2 rounded mb-3">
                   <div>

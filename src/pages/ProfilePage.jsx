@@ -18,7 +18,15 @@ export default function ProfilePage() {
         {/* Profile Card */}
         <div className="profile-hero-card mb-4">
           <div className="d-flex align-items-center gap-3 mb-3">
-            <img src={asset(user.avatar)} alt={user.name} className="profile-large-avatar" />
+            <img
+              src={asset(user.avatar)}
+              alt={user.name}
+              className="profile-large-avatar"
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = asset('/Userbank.jpg');
+              }}
+            />
             <div>
               <h3 className="profile-name mb-1">{user.name}</h3>
               <div className="d-flex align-items-center gap-2">
