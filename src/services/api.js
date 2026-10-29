@@ -1,9 +1,11 @@
-const API_BASE = 'http://localhost:5000/api';
+const isLocalhost = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+const API_BASE = import.meta.env.VITE_API_URL || (isLocalhost ? 'http://localhost:5000/api' : '');
 
 async function request(endpoint, options = {}) {
+  if (!API_BASE) return null;
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 4000);
+    const timeoutId = setTimeout(() => controller.abort(), 3000);
 
     const token = localStorage.getItem('pk_token');
     const headers = {
@@ -19,10 +21,11 @@ async function request(endpoint, options = {}) {
     });
 
     clearTimeout(timeoutId);
-    const data = await res.json();
-    return data;
+    return await res.json();
   } catch (err) {
-    console.warn(`[API] Could not reach backend at ${endpoint}:`, err.message);
+    if (isLocalhost) {
+      console.warn(`[API] Could not reach backend at ${endpoint}:`, err.message);
+    }
     return null;
   }
 }
