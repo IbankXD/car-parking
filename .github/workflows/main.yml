@@ -10,18 +10,11 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  contents: write
 
 jobs:
-  # 1. Build and Test Job
-  build:
-    name: Build & Test (Frontend + Backend)
+  build-and-deploy:
+    name: Build, Test & Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -52,26 +45,10 @@ jobs:
           node --check server/routes/parkingRoutes.js
           node --check server/routes/lotRoutes.js
 
-      - name: Setup Pages
+      - name: Deploy to gh-pages Branch
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-        uses: actions/configure-pages@v5
-
-      - name: Upload Artifact for GitHub Pages
-        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: './dist'
-
-  # 2. Deploy to GitHub Pages (Automatically on push to main)
-  deploy:
-    name: Deploy to GitHub Pages
-    needs: build
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          force_orphan: true
