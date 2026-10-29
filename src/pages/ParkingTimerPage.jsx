@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useParking } from '../context/ParkingContext';
 import MobileLayout from '../components/MobileLayout';
+import { asset } from '../utils/asset';
 
 export default function ParkingTimerPage() {
   const {
@@ -191,7 +192,7 @@ export default function ParkingTimerPage() {
                   : 'แสดง QR Code นี้กับเจ้าหน้าที่หรือระบบทางเข้า-ออก'}
               </p>
               <div className="qr-code-box mx-auto">
-                <img src="/QRCODESC.png" alt="Gate QR" className="qr-img" />
+                <img src={asset('/QRCODESC.png')} alt="Gate QR" className="qr-img" />
               </div>
               <span className="small text-muted d-block mt-2 font-monospace">
                 REF: {activeSession.sessionId}

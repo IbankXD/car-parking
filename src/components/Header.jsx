@@ -1,5 +1,6 @@
 import { useParking } from '../context/ParkingContext';
 import { useNavigate } from 'react-router-dom';
+import { asset } from '../utils/asset';
 
 export default function Header() {
   const { user, role } = useParking();
@@ -9,7 +10,7 @@ export default function Header() {
     <header className="app-header">
       <div className="header-top">
         <div className="brand" onClick={() => navigate('/dashboard')} style={{ cursor: 'pointer' }}>
-          <img src="/logo.png" alt="FindPark Logo" className="brand-logo" />
+          <img src={asset('/logo.png')} alt="FindPark Logo" className="brand-logo" />
           <div className="brand-text">
             <h1 className="brand-title">FIND PARKING</h1>
             <span className="brand-sub">Smart Parking System</span>
@@ -24,7 +25,7 @@ export default function Header() {
           </span>
 
           <img
-            src={user.avatar}
+            src={asset(user.avatar)}
             alt={user.name}
             className="user-avatar"
             onClick={() => navigate('/profile')}
@@ -36,7 +37,7 @@ export default function Header() {
       {/* Weather & Smart Recommendation Banner */}
       <div className="weather-banner">
         <div className="weather-left">
-          <img src="/thunders.png" alt="Weather" className="weather-icon" />
+          <img src={asset('/thunders.png')} alt="Weather" className="weather-icon" />
           <div className="weather-info">
             <span className="weather-temp">29°C</span>
             <span className="weather-desc">พายุฝนฟ้าคะนอง</span>

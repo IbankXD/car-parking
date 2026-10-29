@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useParking } from '../context/ParkingContext';
 import MobileLayout from '../components/MobileLayout';
+import { asset } from '../utils/asset';
 
 export default function ProfilePage() {
   const { user, role, vehicles, logout } = useParking();
@@ -17,7 +18,7 @@ export default function ProfilePage() {
         {/* Profile Card */}
         <div className="profile-hero-card mb-4">
           <div className="d-flex align-items-center gap-3 mb-3">
-            <img src={user.avatar} alt={user.name} className="profile-large-avatar" />
+            <img src={asset(user.avatar)} alt={user.name} className="profile-large-avatar" />
             <div>
               <h3 className="profile-name mb-1">{user.name}</h3>
               <div className="d-flex align-items-center gap-2">

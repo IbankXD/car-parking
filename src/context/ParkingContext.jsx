@@ -1,13 +1,14 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { api } from '../services/api';
+import { asset } from '../utils/asset';
 
 const ParkingContext = createContext();
 
 const INITIAL_LOTS = [
-  { id: 'outdoor-1', name: 'ลานจอดกลางแจ้ง 1', type: 'outdoor', total: 100, occupied: 40, pricePerHour: 30, image: '/gangjank1.png' },
-  { id: 'outdoor-2', name: 'ลานจอดกลางแจ้ง 2', type: 'outdoor', total: 100, occupied: 35, pricePerHour: 30, image: '/gangjank2.png' },
-  { id: 'indoor-1', name: 'อาคารจอดรถ 1', type: 'indoor', total: 120, occupied: 102, pricePerHour: 40, image: '/arkarnjod1.png' },
-  { id: 'indoor-2', name: 'อาคารจอดรถ 2', type: 'indoor', total: 150, occupied: 95, pricePerHour: 40, image: '/arkarnjod2.png' },
+  { id: 'outdoor-1', name: 'ลานจอดกลางแจ้ง 1', type: 'outdoor', total: 100, occupied: 40, pricePerHour: 30, image: asset('/gangjank1.png') },
+  { id: 'outdoor-2', name: 'ลานจอดกลางแจ้ง 2', type: 'outdoor', total: 100, occupied: 35, pricePerHour: 30, image: asset('/gangjank2.png') },
+  { id: 'indoor-1', name: 'อาคารจอดรถ 1', type: 'indoor', total: 120, occupied: 102, pricePerHour: 40, image: asset('/arkarnjod1.png') },
+  { id: 'indoor-2', name: 'อาคารจอดรถ 2', type: 'indoor', total: 150, occupied: 95, pricePerHour: 40, image: asset('/arkarnjod2.png') },
 ];
 
 const INITIAL_VEHICLES = [
@@ -35,7 +36,7 @@ export function ParkingProvider({ children }) {
     phone: currentUser?.phone || (role === 'member' ? '096-728-2172' : '095-882-9932'),
     role: (currentUser?.role || role).toUpperCase(),
     empId: currentUser?.employeeId || (role === 'member' ? 'MET-8942' : '-'),
-    avatar: currentUser?.avatar || (role === 'member' ? '/Userbank.jpg' : '/User.jpg'),
+    avatar: asset(currentUser?.avatar || (role === 'member' ? '/Userbank.jpg' : '/User.jpg')),
     discountLabel: (currentUser?.role || role).toLowerCase() === 'member' ? 'จอดฟรี 2 ชั่วโมงแรก' : 'อัตราปกติ',
     freeHours: (currentUser?.role || role).toLowerCase() === 'member' ? 2 : 0,
     ratePerHour: (currentUser?.role || role).toLowerCase() === 'member' ? 20 : 30

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useParking } from '../context/ParkingContext';
 import MobileLayout from '../components/MobileLayout';
+import { asset } from '../utils/asset';
 
 export default function PaymentPage() {
   const { activeSession, user, calculateCurrentFee, completePayment } = useParking();
@@ -62,7 +63,7 @@ export default function PaymentPage() {
           <div className="card p-3 border-0 shadow-sm rounded-4 mb-4">
             <h5 className="fs-6 fw-bold mb-2">สแกนเพื่อเปิดไม้กั้นออกจากลานจอด</h5>
             <p className="small text-muted mb-3">ใช้ได้ 1 ครั้ง ภายใน 15 นาทีหลังจากชำระเงิน</p>
-            <img src="/Vcards.png" alt="Exit Pass" className="img-fluid rounded mx-auto" style={{ maxHeight: '180px' }} />
+            <img src={asset('/Vcards.png')} alt="Exit Pass" className="img-fluid rounded mx-auto" style={{ maxHeight: '180px' }} />
           </div>
 
           <div className="d-flex flex-column gap-2">
@@ -141,14 +142,14 @@ export default function PaymentPage() {
               className={`method-btn ${paymentMethod === 'promptpay' ? 'active' : ''}`}
               onClick={() => setPaymentMethod('promptpay')}
             >
-              <img src="/icpp.png" alt="PromptPay" className="method-icon" />
+              <img src={asset('/icpp.png')} alt="PromptPay" className="method-icon" />
               <span>QR PromptPay</span>
             </button>
             <button
               className={`method-btn ${paymentMethod === 'truemoney' ? 'active' : ''}`}
               onClick={() => setPaymentMethod('truemoney')}
             >
-              <img src="/ictm.png" alt="TrueMoney" className="method-icon" />
+              <img src={asset('/ictm.png')} alt="TrueMoney" className="method-icon" />
               <span>TrueMoney</span>
             </button>
           </div>
@@ -156,7 +157,7 @@ export default function PaymentPage() {
           {/* QR Code Presentation */}
           <div className="qr-presentation text-center py-3 bg-light rounded-4">
             <img
-              src={paymentMethod === 'promptpay' ? '/pp.png' : '/truemoney.png'}
+              src={asset(paymentMethod === 'promptpay' ? '/pp.png' : '/truemoney.png')}
               alt="Payment QR"
               className="payment-qr-image"
             />

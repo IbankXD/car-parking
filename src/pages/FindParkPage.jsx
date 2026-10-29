@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useParking } from '../context/ParkingContext';
 import MobileLayout from '../components/MobileLayout';
+import { asset } from '../utils/asset';
 
 export default function FindParkPage() {
   const { lots, startParking, activeSession, vehicles } = useParking();
@@ -81,7 +82,7 @@ export default function FindParkPage() {
             return (
               <div key={lot.id} className="lot-card">
                 <div className="lot-image-wrapper">
-                  <img src={lot.image} alt={lot.name} className="lot-image" />
+                  <img src={asset(lot.image)} alt={lot.name} className="lot-image" />
                   <span className={`lot-badge-type ${lot.type}`}>
                     {lot.type === 'indoor' ? 'ในอาคาร' : 'กลางแจ้ง'}
                   </span>
@@ -141,7 +142,7 @@ export default function FindParkPage() {
               </div>
               <div className="modal-body-custom text-center py-3">
                 <img
-                  src={navModal.image}
+                  src={asset(navModal.image)}
                   alt={navModal.name}
                   className="rounded mb-3 w-100"
                   style={{ maxHeight: '160px', objectFit: 'cover' }}

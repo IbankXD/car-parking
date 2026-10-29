@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useParking } from '../context/ParkingContext';
+import { asset } from '../utils/asset';
 
 export default function SignupPage() {
   const navigate = useNavigate();
@@ -71,7 +72,7 @@ export default function SignupPage() {
     <div className="app-viewport">
       <div className="mobile-shell d-flex flex-column justify-content-center p-4">
         <div className="text-center mb-3">
-          <img src="/logo.png" alt="FindPark Logo" style={{ width: '60px', height: '60px', objectFit: 'contain' }} className="mb-2" />
+          <img src={asset('/logo.png')} alt="FindPark Logo" style={{ width: '60px', height: '60px', objectFit: 'contain' }} className="mb-2" />
           <h1 className="fs-5 fw-bold text-dark mb-0">สมัครสมาชิกใหม่</h1>
           <p className="text-muted small">ระบบจัดการที่จอดรถอัจฉริยะ</p>
         </div>

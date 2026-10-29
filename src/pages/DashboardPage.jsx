@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useParking } from '../context/ParkingContext';
 import MobileLayout from '../components/MobileLayout';
 import { useState, useEffect } from 'react';
+import { asset } from '../utils/asset';
 
 export default function DashboardPage() {
   const navigate = useNavigate();
@@ -210,7 +211,7 @@ export default function DashboardPage() {
                   <span className="ticket-tag">ยืนยันแล้ว</span>
                   <h4 className="ticket-lot">{bookings[0].lotName}</h4>
                 </div>
-                <img src="/QRCODESC.png" alt="Ticket QR" className="ticket-qr" />
+                <img src={asset('/QRCODESC.png')} alt="Ticket QR" className="ticket-qr" />
               </div>
               <div className="ticket-details">
                 <div>

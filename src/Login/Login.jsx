@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useParking } from '../context/ParkingContext';
+import { asset } from '../utils/asset';
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ export default function LoginPage() {
       <div className="mobile-shell d-flex flex-column justify-content-center p-4">
         {/* Brand Header */}
         <div className="text-center mb-4">
-          <img src="/logo.png" alt="FindPark Logo" style={{ width: '80px', height: '80px', objectFit: 'contain' }} className="mb-2" />
+          <img src={asset('/logo.png')} alt="FindPark Logo" style={{ width: '80px', height: '80px', objectFit: 'contain' }} className="mb-2" />
           <h1 className="fs-4 fw-bold text-dark mb-1">FIND PARKING</h1>
           <p className="text-muted small">ระบบบริหารจัดการที่จอดรถอัจฉริยะ</p>
         </div>

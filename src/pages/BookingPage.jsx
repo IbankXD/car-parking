@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useParking } from '../context/ParkingContext';
 import MobileLayout from '../components/MobileLayout';
+import { asset } from '../utils/asset';
 
 export default function BookingPage() {
   const { user, lots, vehicles, bookings, addBooking } = useParking();
@@ -202,7 +203,7 @@ export default function BookingPage() {
                       ทะเบียน: {b.plate}
                     </span>
                   </div>
-                  <img src="/QRCODESC.png" alt="Pass QR" style={{ width: '50px', height: '50px' }} />
+                  <img src={asset('/QRCODESC.png')} alt="Pass QR" style={{ width: '50px', height: '50px' }} />
                 </div>
               </div>
             ))

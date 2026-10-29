@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParking } from '../context/ParkingContext';
 import MobileLayout from '../components/MobileLayout';
+import { asset } from '../utils/asset';
 
 export default function HistoryPage() {
   const { history, bookings } = useParking();
@@ -84,7 +85,7 @@ export default function HistoryPage() {
                         {b.plate} ({b.name})
                       </span>
                     </div>
-                    <img src="/QRCODESC.png" alt="QR" style={{ width: '50px', height: '50px' }} />
+                    <img src={asset('/QRCODESC.png')} alt="QR" style={{ width: '50px', height: '50px' }} />
                   </div>
                 </div>
               ))
@@ -104,7 +105,7 @@ export default function HistoryPage() {
               </div>
               <div className="modal-body-custom py-3">
                 <div className="text-center mb-3">
-                  <img src="/logo.png" alt="Logo" style={{ width: '60px' }} />
+                  <img src={asset('/logo.png')} alt="Logo" style={{ width: '60px' }} />
                   <h5 className="fs-6 fw-bold mt-2 mb-0">FIND PARKING SMART SYSTEM</h5>
                   <span className="small text-muted">{selectedReceipt.receiptNo}</span>
                 </div>
