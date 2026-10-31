@@ -2,15 +2,18 @@
   --primary-color: #fd6e2b;
   --primary-hover: #e05a1a;
   --primary-light: #fff3ec;
-  --dark-bg: #1e1e24;
+  --secondary-color: #473366;
+  --secondary-dark: #291a3f;
+  --secondary-light: #f3eff9;
+  --dark-bg: #473366;
   --card-bg: #ffffff;
-  --body-bg: #f4f6fa;
-  --text-main: #2b2d42;
-  --text-muted: #8d99ae;
+  --body-bg: #f6f5f9;
+  --text-main: #241c30;
+  --text-muted: #7d7589;
   --radius-lg: 1.25rem;
   --radius-md: 0.85rem;
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 6px 18px rgba(71, 51, 102, 0.08);
   --shadow-lg: 0 12px 28px rgba(253, 110, 43, 0.15);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
@@ -22,7 +25,7 @@
 }
 
 body {
-  background-color: #e9ecef;
+  background-color: #1a191f;
   color: var(--text-main);
   min-height: 100vh;
   display: flex;
@@ -39,7 +42,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background: #dfe3ea;
+  background: #212026;
   padding: 0;
 }
 
@@ -58,7 +61,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   overflow: hidden;
 }
 
@@ -182,7 +185,7 @@ body {
 
 /* Weather Banner */
 .weather-banner {
-  background: linear-gradient(135deg, #2b3a4a 0%, #1e2833 100%);
+  background: linear-gradient(135deg, #473366 0%, #291a3f 100%);
   color: #ffffff;
   border-radius: 14px;
   padding: 8px 12px;
@@ -190,6 +193,7 @@ body {
   justify-content: space-between;
   align-items: center;
   font-size: 11px;
+  box-shadow: 0 4px 14px rgba(71, 51, 102, 0.25);
 }
 
 .weather-left {
@@ -220,21 +224,22 @@ body {
   text-align: right;
 }
 
-/* Bottom Navigation Bar */
+/* Bottom Navigation Bar (Figma Floating Pill) */
 .bottom-nav {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #ffffff;
+  bottom: 12px;
+  left: 14px;
+  right: 14px;
+  background: #473366;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 68px;
-  padding: 0 10px;
-  border-top: 1px solid #edf0f5;
-  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.04);
+  height: 64px;
+  padding: 0 8px;
+  border-radius: 36px;
+  box-shadow: 0 10px 28px rgba(71, 51, 102, 0.4);
   z-index: 50;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-item {
@@ -244,41 +249,44 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #8c98a9;
-  font-size: 11px;
+  color: #cfc4da;
+  font-size: 10px;
   font-weight: 500;
-  padding: 6px;
-  width: 60px;
+  padding: 4px;
+  width: 56px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .nav-item i {
-  font-size: 19px;
+  font-size: 18px;
   margin-bottom: 2px;
-  transition: transform 0.2s;
+  color: #cfc4da;
+  transition: transform 0.2s, color 0.2s;
 }
 
 .nav-item.active {
-  color: var(--primary-color);
+  color: #fd6e2b;
   font-weight: 700;
 }
 
 .nav-item.active i {
+  color: #fd6e2b;
   transform: translateY(-2px);
 }
 
 .nav-item.center-action .icon-wrapper {
   background: var(--primary-color);
   color: #ffffff;
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: -18px;
-  box-shadow: 0 4px 12px rgba(253, 110, 43, 0.4);
+  box-shadow: 0 4px 14px rgba(253, 110, 43, 0.55);
+  border: 3px solid #ffffff;
   position: relative;
 }
 
@@ -373,12 +381,13 @@ body {
 }
 
 .timer-box {
-  background: #1e2833;
+  background: linear-gradient(135deg, #473366 0%, #291a3f 100%);
   color: #ffffff;
   text-align: center;
   padding: 12px;
   border-radius: 14px;
   margin-bottom: 12px;
+  box-shadow: 0 4px 14px rgba(71, 51, 102, 0.25);
 }
 
 .timer-value {
@@ -699,11 +708,11 @@ body {
   justify-content: center;
   align-items: center;
   gap: 12px;
-  background: #1e2833;
+  background: linear-gradient(135deg, #473366 0%, #291a3f 100%);
   padding: 24px 16px;
   border-radius: var(--radius-lg);
   margin-bottom: 20px;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 24px rgba(71, 51, 102, 0.3);
 }
 
 .timer-unit {
